@@ -2,6 +2,8 @@
 
 Plutus experiments
 
+Current tested plutus version: [v2021-09-10](https://github.com/input-output-hk/plutus/releases/tag/v2021-09-10) hash `f7466c86fe3afc593746e44257adbf7785f7cedb`
+
 ## Using this repo
 
 ### setup
@@ -17,7 +19,7 @@ curl -L https://nixos.org/nix/install | sh
 . $HOME/.nix-profile/etc/profile.d/nix.sh
 ```
 
-**prepare plutus**
+**prepare plutus env**
 
 https://github.com/input-output-hk/plutus#cache-warning
 
@@ -35,8 +37,27 @@ first time it will take some time, if your nix cache is set up correctly further
 
 ```
 cd ./vendor/plutus && nix-shell
+cabal update
+```
+## Start the playground
+
+1. open new terminal
+
+> server
+```
+cd ./vendor/plutus && nix-shell
+cd ./plutus-playground-client 
+plutus-playground-server
 ```
 
+2. open new terminal
+
+> client
+```
+cd ./vendor/plutus && nix-shell
+cd ./plutus-playground-client 
+npm start
+```
 
 ## Resources
 
